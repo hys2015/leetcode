@@ -1,4 +1,4 @@
-/*  
+﻿/*  
     https://leetcode.com/problems/bitwise-and-of-numbers-range/
     
     Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
@@ -20,7 +20,7 @@ public:
 // solution 2
 /*
     m的bit位和n的bit位不同即返回0是因为bit位不同意味着肯定存在一个数b, m < b <= n,使得 m & b = 0,而n的高位又会被m的高位清零，所以肯定为0 
-    
+    如果两个数字的bit位数相同，则要看看他们的差值有多少bit位，假如为x位，然后将m&n 的低x位置0
 */
 
 class Solution {
