@@ -4,6 +4,8 @@
   
   For example, given the array [2,3,-2,4],
   the contiguous subarray [2,3] has the largest product = 6.
+  
+  数组中出现0就产生截断，这时候正的最大值和负的“最大值”都需要重新计数
 */
 
 class Solution {
