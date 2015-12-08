@@ -8,10 +8,41 @@
     任意一个数的某一bit位上有0则这一位肯定为0
 */
 
+// solution 1
 class Solution {
 public:
     int rangeBitwiseAnd(int m, int n) {
         while( m < n ) n &= n-1;
         return n;
+    }
+};
+
+// solution 2
+/*
+    m的bit位和n的bit位不同即返回0是因为bit位不同意味着肯定存在一个数b, m < b <= n,使得 m & b = 0,而n的高位又会被m的高位清零，所以肯定为0 
+    
+*/
+
+class Solution {
+public:
+    int rangeBitwiseAnd(int m, int n) {
+        if( n == m ) return m;
+        
+        int mbitcount = bitcount(m);
+        int nbitcount = bitcount(n);
+        if( mbitcount != nbitcount ) return 0;
+        
+        int deltabitcount = bitcount(n - m);
+        return m & n & ( 0xffffffff << deltabitcount);
+    }
+    
+    int bitcount(int n){
+        if( n == 0 ) return 0;
+        int cnt = 0;
+        while( n > 0){
+            ++cnt;
+            n >>= 1;
+        }
+        return cnt;
     }
 };
