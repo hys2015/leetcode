@@ -1,5 +1,9 @@
-#include<iostream>
-#include<cmath>
+/*
+     https://leetcode.com/problems/sqrtx/
+     开方函数的实现
+	 二分法 
+ */
+
 
 class Solution {
 public:
@@ -18,11 +22,3 @@ public:
         return low;
     }
 };
-int main(){
-	Solution sol;
-	//0.00001,2147483647
-	//
-	double res = sol.mySqrt(4);
-	std::cout<< res << std::endl;
-	return 0;	
-}
