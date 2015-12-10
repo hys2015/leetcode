@@ -1,28 +1,34 @@
 #include<iostream>
 #include<cmath>
+#include<vector>
+
+using namespace std;
+
+struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
 
 class Solution {
+private: 
+    vector<int> sta;
 public:
-    int mySqrt(int x) {
-        if( 0 == x ) return 0;
-        if( 1 == x ) return 1;
-        int low = 0, high = x;
-        while( high - low > 1){
-        	int mid = (low + high) / 2; 
-            if( mid > x / mid){
-                high = mid;
-            }else if( mid <= x / mid){
-                low = mid;
-            }
-        }
-        return low;
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        s
     }
 };
 int main(){
 	Solution sol;
 	//0.00001,2147483647
 	//
-	double res = sol.mySqrt(4);
-	std::cout<< res << std::endl;
+	vector<int> nums;
+	nums.push_back(1);
+	nums.push_back(2);
+	nums.push_back(3);
+	nums.push_back(4);
+	nums.push_back(5);
+	TreeNode* res = sol.sortedArrayToBST(nums);
 	return 0;	
 }
