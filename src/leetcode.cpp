@@ -1,50 +1,38 @@
 #include<iostream>
 #include<cmath>
 #include<vector>
+#include<string>
 
 using namespace std;
 
 class Solution {
+private:
+    vector<vector<string> > res;
+    void anagrams(vector<string>& strs, int idx){
+    	string tstr = strs[idx];
+    	vector<string> t;
+    	t.push_back(tstr);
+    	for(int i = idx+1; i < strs.size() ; ++i){
+    		if(eqs(tstr, nums[i])){
+    				
+    		}else{
+    			
+    		}
+    	}
+    }
 public:
-    int uniquePathsWithObstacles(vector<vector<int> >& obstacleGrid) {
-    	if(obstacleGrid.size() > 0 && obstacleGrid[0].size() > 0 && obstacleGrid[0][0] == 1){
-           return 0;
-        }
-        for( int i = 0 ; i < obstacleGrid[0].size() ; ++i){
-            if( obstacleGrid[0][i] == 1 ){
-                obstacleGrid[0][i] = 0;
-                break;                
-            }
-            obstacleGrid[0][i] = 1;
-        }
-        for( int i = 1; i < obstacleGrid.size(); ++i){
-            if(obstacleGrid[i][0] == 1){
-                obstacleGrid[i][0] = 0;
-            }else{
-                obstacleGrid[i][0] = 1;
-            }
-            for( int j = 1; j < obstacleGrid[0].size(); ++j){
-                if( obstacleGrid[i][j] == 1 ){
-                    obstacleGrid[i][j] == 0;
-                }else{
-                    int left = obstacleGrid[i][j-1];
-                    int up = obstacleGrid[i-1][j];
-                    obstacleGrid[i][j] = left + up;
-                }
-            }
-        }
-        return obstacleGrid[obstacleGrid.size()-1][obstacleGrid[0].size()-1];
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        return anagrams(strs, 0);
     }
 };
 int main(){
 	Solution sol;
-	vector<vector<int> > nums;
-	vector<int> s;
-	s.push_back(0);
-	s.push_back(0);
-	nums.push_back(s);
-	cout<< nums[0].size() << endl;
-	int res = sol.uniquePathsWithObstacles(nums);
-	cout << res << endl;
+	vector<string> s;
+	s.push_back("eat");
+	s.push_back("eta");
+	s.push_back("etd");
+	s.push_back("dte");
+	vector<vector<string> > res = sol.groupAnagrams(s);
+	cout << res.size() << endl;
 	return 0;	
 }
